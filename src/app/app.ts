@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
+import { FaceSnap } from './face-snap/face-snap';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  standalone: true,
+  imports: [FaceSnap],
 })
 export class App {
-  protected readonly title = signal('snapface');
 }

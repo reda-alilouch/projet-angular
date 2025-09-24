@@ -3,11 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { FaceSnap } from './face-snap/face-snap';
 
 @NgModule({
-  declarations: [
-    App
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule
@@ -15,6 +14,5 @@ import { App } from './app';
   providers: [
     provideBrowserGlobalErrorListeners()
   ],
-  bootstrap: [App]
 })
 export class AppModule { }
