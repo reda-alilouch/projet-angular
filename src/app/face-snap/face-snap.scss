@@ -43,3 +43,16 @@
     }
   }
 }
+.unsnapped {
+  background-color: rgba(233, 89, 89, 0.4);
+  color: rgb(132, 0, 0);
+
+  button {
+    box-shadow: 3px 3px 7px rgb(233, 89, 89);
+    color: rgb(132, 0, 0);
+
+    &:active {
+      box-shadow: 0 0 5px rgb(233, 89, 89);
+    }
+  }
+}

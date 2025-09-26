@@ -21,6 +21,7 @@ export class App implements OnInit{
         "Mon premier FaceSnap description",
         new Date(),
         0,
+        3,
         'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
       ),
       new Facesnap(
@@ -28,6 +29,7 @@ export class App implements OnInit{
         "Mon deuxième FaceSnap description",
         new Date(),
         5,
+        10,
         'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
       ),
       new Facesnap(
@@ -35,6 +37,7 @@ export class App implements OnInit{
         "Mon troisième FaceSnap description",
         new Date(),
         159,
+        50,
         'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
       ),
     ];

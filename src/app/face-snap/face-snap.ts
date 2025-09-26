@@ -15,25 +15,49 @@ import { NgClass, NgStyle } from '@angular/common';
 export class FaceSnap {
   @Input() faceSnap!: Facesnap;
   snapButtonText: string = 'Oh Snap!';
+  unsnapButtonText: string = 'Oh unSnap!';
   userHasSnaped: boolean = false;
+  userHasUnSnaped: boolean = false;
 
-  onSnap(): void {
+onSnap(): void {
     if (this.userHasSnaped) {
-      this.snap();
+      // L'utilisateur annule son snap
+      this.faceSnap.snaps--;
+      this.snapButtonText = 'Oh Snap!';
+      this.userHasSnaped = false;
     } else {
-      this.unSnap();
+      // L'utilisateur met un snap
+      this.faceSnap.snaps++;
+      this.snapButtonText = 'Oops, remove Snap!';
+      this.userHasSnaped = true;
+
+      // Si avant il avait un unsnap → on l'enlève
+      if (this.userHasUnSnaped) {
+        this.faceSnap.unsnaps--;
+        this.unsnapButtonText = 'Oh unSnap!';
+        this.userHasUnSnaped = false;
+      }
     }
   }
 
-  snap(): void {
-    this.faceSnap.snaps--;
-    this.snapButtonText = 'Oh Snap!';
-    this.userHasSnaped = false;
-  }
+  onUnsnap(): void {
+    if (this.userHasUnSnaped) {
+      // L'utilisateur annule son unsnap
+      this.faceSnap.unsnaps--;
+      this.unsnapButtonText = 'Oh unSnap!';
+      this.userHasUnSnaped = false;
+    } else {
+      // L'utilisateur met un unsnap
+      this.faceSnap.unsnaps++;
+      this.unsnapButtonText = 'Oops, remove unSnap!';
+      this.userHasUnSnaped = true;
 
-  unSnap(): void {
-    this.faceSnap.snaps++;
-    this.snapButtonText = 'Oops, unSnap!';
-    this.userHasSnaped = true;
+      // Si avant il avait un snap → on l'enlève
+      if (this.userHasSnaped) {
+        this.faceSnap.snaps--;
+        this.snapButtonText = 'Oh Snap!';
+        this.userHasSnaped = false;
+      }
+    }
   }
 }
