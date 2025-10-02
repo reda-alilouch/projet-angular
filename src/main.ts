@@ -5,5 +5,4 @@ import * as fr from '@angular/common/locales/fr';
 
 registerLocaleData(fr.default);
 
-bootstrapApplication(App)
-  .catch(err => console.error(err));
+bootstrapApplication(App).catch((err) => console.error(err));

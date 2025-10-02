@@ -8,20 +8,8 @@ import { FaceSnapList } from './face-snap-list/face-snap-list';
 import { Header } from './header/header';
 
 @NgModule({
-  declarations: [
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    App,
-    FaceSnapList,
-    Header
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners()
-    , { provide: LOCALE_ID, useValue: 'fr-FR' }
-  ],
+  declarations: [],
+  imports: [BrowserModule, AppRoutingModule, App, FaceSnapList, Header],
+  providers: [provideBrowserGlobalErrorListeners(), { provide: LOCALE_ID, useValue: 'fr-FR' }],
 })
-export class AppModule { }
-
-
+export class AppModule {}

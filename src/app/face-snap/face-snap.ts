@@ -7,11 +7,7 @@ import { DatePipe, NgClass, NgStyle } from '@angular/common';
   standalone: true,
   templateUrl: './face-snap.html',
   styleUrls: ['./face-snap.scss'],
-  imports:[
-    NgStyle,
-    NgClass,
-    DatePipe
-  ]
+  imports: [NgStyle, NgClass, DatePipe],
 })
 export class FaceSnap {
   @Input() faceSnap!: Facesnap;
@@ -20,7 +16,7 @@ export class FaceSnap {
   userHasSnaped: boolean = false;
   userHasUnSnaped: boolean = false;
 
-onSnap(): void {
+  onSnap(): void {
     if (this.userHasSnaped) {
       // L'utilisateur annule son snap
       this.faceSnap.snaps--;

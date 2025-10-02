@@ -8,6 +8,4 @@ import { Header } from './header/header';
   standalone: true,
   imports: [FaceSnapList, Header],
 })
-export class App {
-  
-}
+export class App {}
