@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { Facesnap } from '../models/face-snap';
 import { DatePipe, NgClass, NgStyle } from '@angular/common';
-
+import { FaceSnapsService } from '../services/face-snaps.service';
 @Component({
   selector: 'app-face-snap',
   standalone: true,
@@ -16,21 +16,19 @@ export class FaceSnap {
   userHasSnaped: boolean = false;
   userHasUnSnaped: boolean = false;
 
+  constructor(private faceSnapsService: FaceSnapsService) {}
+
   onSnap(): void {
     if (this.userHasSnaped) {
-      // L'utilisateur annule son snap
-      this.faceSnap.snaps--;
+      this.faceSnapsService.removesnapFaceSnapById(this.faceSnap.id);
       this.snapButtonText = 'Oh Snap!';
       this.userHasSnaped = false;
     } else {
-      // L'utilisateur met un snap
-      this.faceSnap.snaps++;
+      this.faceSnapsService.addsnapFaceSnapById(this.faceSnap.id);
       this.snapButtonText = 'Oops, remove Snap!';
       this.userHasSnaped = true;
-
-      // Si avant il avait un unsnap → on l'enlève
       if (this.userHasUnSnaped) {
-        this.faceSnap.unsnaps--;
+        this.faceSnapsService.removeunsnapFaceSnapById(this.faceSnap.id);
         this.unsnapButtonText = 'Oh unSnap!';
         this.userHasUnSnaped = false;
       }
@@ -39,19 +37,15 @@ export class FaceSnap {
 
   onUnsnap(): void {
     if (this.userHasUnSnaped) {
-      // L'utilisateur annule son unsnap
-      this.faceSnap.unsnaps--;
+      this.faceSnapsService.removeunsnapFaceSnapById(this.faceSnap.id);
       this.unsnapButtonText = 'Oh unSnap!';
       this.userHasUnSnaped = false;
     } else {
-      // L'utilisateur met un unsnap
-      this.faceSnap.unsnaps++;
+      this.faceSnapsService.addunsnapFaceSnapById(this.faceSnap.id);
       this.unsnapButtonText = 'Oops, remove unSnap!';
       this.userHasUnSnaped = true;
-
-      // Si avant il avait un snap → on l'enlève
       if (this.userHasSnaped) {
-        this.faceSnap.snaps--;
+        this.faceSnapsService.removesnapFaceSnapById(this.faceSnap.id);
         this.snapButtonText = 'Oh Snap!';
         this.userHasSnaped = false;
       }
