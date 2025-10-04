@@ -49,7 +49,7 @@ export class FaceSnapsService {
     foundFaceSnap.snaps--;
   }
 
-   addunsnapFaceSnapById(faceSnapId: string): void {
+  addunsnapFaceSnapById(faceSnapId: string): void {
     const foundFaceSnap = this.faceSnaps.find((faceSnap) => faceSnap.id === faceSnapId);
     if (!foundFaceSnap) {
       throw new Error('FaceSnap not found!');
