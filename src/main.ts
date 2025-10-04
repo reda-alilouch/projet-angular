@@ -7,5 +7,5 @@ import * as fr from '@angular/common/locales/fr';
 registerLocaleData(fr.default);
 
 bootstrapApplication(App, {
-    providers: [provideRouter(routes)],
+  providers: [provideRouter(routes)],
 }).catch((err) => console.error(err));

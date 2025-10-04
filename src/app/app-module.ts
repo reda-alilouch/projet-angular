@@ -3,13 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { App } from './app';
 import { FaceSnapList } from './face-snap-list/face-snap-list';
 import { Header } from './header/header';
+import { LandingPage } from './landing-page/landing-page';
 
 @NgModule({
-  declarations: [],
+  declarations: [LandingPage],
   imports: [BrowserModule, App, FaceSnapList, Header],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    { provide: LOCALE_ID, useValue: 'fr-FR' },
-  ],
+  providers: [provideBrowserGlobalErrorListeners(), { provide: LOCALE_ID, useValue: 'fr-FR' }],
 })
 export class AppModule {}
