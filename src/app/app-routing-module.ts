@@ -1,15 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { FaceSnapList } from './face-snap-list/face-snap-list';
 import { LandingPage } from './landing-page/landing-page';
 
 export const routes: Routes = [
-  { path: 'facesnaps', component: FaceSnapList },
-  { path: '', component: LandingPage },
+  { 
+    path: 'facesnaps', 
+    component: FaceSnapList,
+    title: 'FaceSnaps - Liste'
+  },
+  { 
+    path: '', 
+    component: LandingPage,
+    title: 'Accueil - FaceSnaps'
+  },
+  { 
+    path: '**', 
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

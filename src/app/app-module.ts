@@ -1,13 +1,18 @@
-import { LOCALE_ID, NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { App } from './app';
-import { FaceSnapList } from './face-snap-list/face-snap-list';
-import { Header } from './header/header';
-import { LandingPage } from './landing-page/landing-page';
+import { ApplicationConfig, LOCALE_ID } from '@angular/core';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { routes } from './app-routing-module';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import * as fr from '@angular/common/locales/fr';
 
-@NgModule({
-  declarations: [LandingPage],
-  imports: [BrowserModule, App, FaceSnapList, Header],
-  providers: [provideBrowserGlobalErrorListeners(), { provide: LOCALE_ID, useValue: 'fr-FR' }],
-})
-export class AppModule {}
+registerLocaleData(fr.default);
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(),
+    provideAnimations(),
+    { provide: LOCALE_ID, useValue: 'fr-FR' }
+  ]
+};
